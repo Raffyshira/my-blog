@@ -1,9 +1,6 @@
 import rss from "@astrojs/rss";
 import { getCollection } from "astro:content";
 import { SITE_DESCRIPTION, SITE_TITLE } from "../../consts.ts";
-import { localeParams } from "../../i18n.ts";
-
-export const getStaticPath = () => localeParams;
 
 export async function GET(context) {
     const locale = context.params.lang;

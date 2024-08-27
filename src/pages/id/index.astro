@@ -5,10 +5,10 @@ import Prose from "@/components/Prose.astro"
 
 import {
   Button
-} from "../../components/ui/button.jsx";
+} from "@/components/ui/button.jsx";
 
-import myImage from "../../assets/akurafi.jpg";
-import project1 from "../../assets/projectsekolah.jpg";
+import myImage from "@/assets/akurafi.jpg";
+import project1 from "@/assets/projectsekolah.jpg";
 import {
   Instagram,
   ExternalLink,
@@ -18,7 +18,7 @@ import {
 
 import type {
   Lang
-} from "../../i18n.ts";
+} from "@/i18n.ts";
 
 import {
   getCollection
@@ -70,9 +70,9 @@ const myskill = ["Astro.js", "Typescript", "React", "Tailwindcss", "Shadcn UI", 
     {
     myskill.map(item => (
       <p class="bg-neutral-700 h-6 text-xs py-1 rounded-full px-3 text-white">
-        {
-          item
-        }
+{
+        item
+      }
       </p>
       ))
       }
@@ -86,25 +86,25 @@ const myskill = ["Astro.js", "Typescript", "React", "Tailwindcss", "Shadcn UI", 
             return (
               <div class="mt-3.5">
           <a class="flex flex-row-reverse justify-between items-center gap-x-3" href= { `/${locale}/blog/${slug.join("/")}/` }>
-{
-                post.data.cover && (
-                  <Image class="rounded-none w-32 aspect-video object-cover" src= { post.data.cover } width= { 300 } height= { 100 } alt= { post.data.title } />
-                )}
+                {
+                  post.data.cover && (
+                    <Image class="rounded-none w-32 aspect-video object-cover" src= { post.data.cover } width= { 300 } height= { 100 } alt= { post.data.title } />
+                  )}
             <div class="my-3.5">
               <h2 class="text-xl"> {
-                    post.data.title
-                  }</h2>
+                      post.data.title
+                    }</h2>
               <time class="my-1 text-xs text-neutral-500 dark:text-neutral-400" datetime= { post.data.date.toLocaleDateString("id-ID")}>
-                  {
-                    post.data.date.toLocaleDateString("id-ID")
-                  }
+{
+                      post.data.date.toLocaleDateString("id-ID")
+                    }
               </time>
               <p class="text-neutral-500 dark:text-neutral-400 text-sm line-clamp-2 ">
-{
-                    post.data.description
-                  }
-                </p>
-              </div>
+                    {
+                      post.data.description
+                    }
+                  </p>
+                </div>
           </a>
               </div>
             );
@@ -126,9 +126,9 @@ const myskill = ["Astro.js", "Typescript", "React", "Tailwindcss", "Shadcn UI", 
                 {
                 listTech.map(item => (
                   <p class="bg-neutral-700 h-6 text-xs py-1 rounded-full px-3">
-                    {
-                      item
-                    }
+{
+                    item
+                  }
                   </p>
                   ))
                   }

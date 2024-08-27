@@ -24,7 +24,7 @@ import {
 
 //const t = useTranslations(Astro.currentLocale as Lang);
 
-export const prerender = true;
+export const prerender = false;
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog");

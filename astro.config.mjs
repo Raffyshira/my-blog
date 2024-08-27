@@ -5,11 +5,9 @@ import remarkToc from "remark-toc";
 import sitemap from "@astrojs/sitemap";
 import mdx from "@astrojs/mdx";
 
-import node from "@astrojs/node";
-
 // https://astro.build/config
 export default defineConfig({
-    site: "http://localhost:4321/",
+    site: "https://rafiahsiraprayoga.vercel.app/",
     integrations: [
         react(),
         tailwind({
@@ -41,5 +39,5 @@ export default defineConfig({
             footnoteLabel: "Footnotes"
         },
         gfm: true
-    },
+    }
 });

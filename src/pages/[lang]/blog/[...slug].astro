@@ -1,0 +1,85 @@
+---
+import {
+  getCollection
+} from "astro:content";
+import {
+  Image
+} from "astro:assets";
+import type {
+  Lang
+} from "../../i18n.ts";
+
+
+import BlogPostLayout from "../../../layouts/BlogPostLayout.astro";
+import Prose from "../../../components/Prose.astro";
+import TableOfContent from "../../../components/TableOfContent.astro";
+import Container from "../../../components/Container.astro";
+import {
+  Button
+} from "../../../components/ui/button.jsx"
+// import {
+//  useTranslations,
+//  Lang
+// } from "../../../i18n.ts"
+
+//const t = useTranslations(Astro.currentLocale as Lang);
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog");
+
+  return posts.map((post) => {
+    const [lang, ...slug] = post.slug.split("/");
+    return {
+      params: {
+        lang, slug: slug.join("/") || undefined
+      }, props: {
+        post
+      }
+    };
+  });
+}
+const locale = Astro.currentLocale as Lang;
+
+const {
+  lang
+} = Astro.params;
+const Post = Astro.props;
+const {
+  Content,
+  headings
+} = await Post.post.render();
+const {
+  title,
+  description,
+  author,
+  date,
+  cover,
+} = Post.post.data;
+---
+
+<BlogPostLayout title={title} description={description}>
+  <Container>
+    <artikel>
+      <h1 class="text-3xl mb-3.5 font-NeueBold">{title}</h1>
+        <div class="flex justify-start items-center mb-3.5 space-x-5">
+          <p class="text-neutral-400 text-base sm:text-lg">
+            Author: {author}</p>
+            <time class="text-neutral-400" datetime={date.toISOString()}>
+              {date.toLocaleDateString(lang)}
+              </time>
+            </div>
+          </artikel>
+          {cover && <Image class="w-full rounded-xl mb-10" src= { cover } alt= { title } loading="eager" width= { 800 } height= { 800 } />}
+          <header>
+        </header>
+        <TableOfContent headings={headings} />
+        <Prose>
+          <Content />
+        </Prose>
+        <Button className="mt-5 font-NeueMedium" client:load>
+          <a href={`/${locale}/blog`}>Back to Page</a>
+        </Button>
+      </Container>
+    </BlogPostLayout>

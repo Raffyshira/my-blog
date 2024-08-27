@@ -1,0 +1,30 @@
+---
+import {
+  getRelativeLocaleUrl
+} from "astro:i18n";
+
+import type {
+  Lang
+} from "../i18n.ts";
+
+const locale = Astro.currentLocale as Lang;
+
+const {
+  href,
+  ...props
+} = Astro.props;
+
+const isActive = (path: any) => {
+  return getRelativeLocaleUrl(locale, path) === Astro.url.pathname;
+}
+---
+
+<a
+  class={isActive(href) ? "inline-flex items-center font-NeueMedium transition-colors underline underline-offset-8  decoration-blue-700 dark:decoration-lime-500 duration-300": null}
+  href={getRelativeLocaleUrl(locale, href)}
+  {...props}
+  >
+  <span class="relative">
+    <slot />
+  </span>
+</a>

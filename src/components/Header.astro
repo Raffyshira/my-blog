@@ -1,0 +1,39 @@
+---
+import LocaleSelect from "./i18n/LocaleSelect.astro";
+import {
+  ModeToggle
+} from "@/components/ui/ModeToggle.jsx";
+import Link from "@/components/Link.astro";
+
+import {
+  useTranslations
+} from "../i18n.ts";
+
+import type {
+  Lang
+} from "../i18n.ts";
+
+const locale = Astro.currentLocale as Lang;
+const t = useTranslations(locale);
+
+
+---
+
+<header id="header" class="max-w-2xl mx-auto w-full h-full flex justify-between items-center p-10 ">
+  <nav class="flex items-center space-x-3">
+    <Link href={`/`}>
+      {t({
+        en: "Home", id: "Beranda"
+      })}
+      </Link>
+      <Link href={`/blog`}>
+        {t({
+          en: "Blogs", id: "Artikel"
+        })}
+        </Link>
+      </nav>
+      <div class="flex gap-x-3 items-center">
+        <LocaleSelect />
+        <ModeToggle client:load />
+      </div>
+    </header>

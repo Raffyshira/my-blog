@@ -1,0 +1,20 @@
+---
+const {
+  value,
+  framework
+} = Astro.props;
+---
+
+<div class="flex flex-col items-center gap-2 mt-3.5">
+  <div class="relative h-5 w-full overflow-hidden rounded-full bg-secondary">
+    <div
+      class="h-full w-full flex-1 bg-blue-700 dark:bg-lime-500 transition-all duration-500 text-white dark:text-black text-xs flex items-center justify-end font-NeueMedium sm:text-sm"
+      style={ { width: `${value}%` }}
+      >
+      <p class="mr-1.5">
+        {framework}
+        </p>
+        {value}%
+        </div>
+      </div>
+    </div>

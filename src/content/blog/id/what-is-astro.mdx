@@ -1,0 +1,125 @@
+---
+title: "Apa itu Astro.js ?"
+description: "Astro adalah sebuah web framework javascript yang teroptimasi untuk pengembangan yang lebih cepat, situs web berbasis konten."
+author: "Rafi Ahsira Prayoga"
+date: 2024-8-26
+cover: "../../../assets/images/redaksi/astro1.jpeg"
+---
+import Progress from "../../../components/Progress.astro"
+
+
+## Apa itu Astro ?
+
+Astro adalah sebuah web framework javascript yang teroptimasi untuk pengembangan yang lebih cepat, situs web berbasis konten.
+
+## Apa aja sih keunggulan astro.js ?
+
+#### 1. Server-first
+
+Server-first, Astro.js memiliki keunggulan nya sendiri yaitu server-first. Astro.js mampu menaikkan performace website dengan cara menrendering sebuah components di server terlebih dahulu, lalu astro.js memproses nya menjadi sebuah HTML yang ringan ke browser tanpa ada javascript. Jadi ini menurut saya keunggulan paling bagus dalam menggunakan astro.js dan terbukti untuk meningkatkan performace dan seo website.
+
+#### 2. Content-Driven
+
+Seperti yang dijelaskan tadi, bahwa astro.js berbasis
+konten. Astro.js dirancang untuk berfungsi dalam
+penulisan konten. Memuat data dari sistem file mu, API,
+atau CMS (Content Management System). Jadi menurut saya
+astro js ini seperti wordpress tetapi kamu bisa
+mengcustomize sesuka dirimu tanpa menghapus fitur
+penulisan konten.
+
+#### 3. Customizable
+
+Kamu juga bisa mengcustomize dengan alat favorit mu, kamu juga bisa memakai sendiri javascript UI components, CSS libraries, tema, intergrasi dan lain-lain. saya merekomendasikan mengunakan Shadcn UI.
+
+## Astro Islands
+
+Fitur yang hanya ada di astro.js dan mampu mengoptimasi website mu tidak seperti yang web framework lain. Manfaat dari astro ini adalah kinerja pemuatan halaman yang unik dapat meningkatkan nilai konversi, Core Web Vitals dan SEO (Search Engine Optimazition).
+
+*Data Real-World Core Web Vitals*
+<Progress value={60} framework="Astro.js" />
+<Progress value={38} framework="Wordpress" />
+<Progress value={38} framework="Gastby" />
+<Progress value={24} framework="Next.js" />
+<Progress value={20} framework="Nuxt.js" />
+
+[Lihat full dataset](https://lookerstudio.google.com/u/0/reporting/55bc8fad-44c2-4280-aa0b-5f3f0cd3d2be/page/M6ZPC?params=%7B%22df44%22:%22include%25EE%2580%25800%25EE%2580%2580IN%25EE%2580%2580WordPress%25EE%2580%2580Next.js%25EE%2580%2580Nuxt.js%25EE%2580%2580Gatsby%25EE%2580%2580Astro%25EE%2580%2580SvelteKit%25EE%2580%2580Remix%22%7D), Menurut data performa dunia dari [HTTP Archive](https://httparchive.org/) dan juga [Chrome UX Report.](https://developer.chrome.com/docs/crux)
+
+## Fleksibilitas
+
+Astro juga support semua UI framework. jadi kamu bisa juga memakai react, vue, prereact, svelte, solid dalam satu project. Ini sungguh fitur yang luar biasa dimana lagi kamu bisa memakai berbagai framework dalam satu project astro.js.
+
+```astro
+---
+import BuyButton from '../components/BuyButton.jsx';
+import BuyButton from '../components/BuyButton.vue';
+import BuyButton from '../components/BuyButton.svelte';
+
+import { getProductDetails } from "ecommerce-package";
+import ProductPageLayout from '../layouts/ProductPageLayout.astro';
+
+const product = await getProductDetails(Astro.params.slug);
+---
+
+<ProductPageLayout>
+  <img src={product.imageUrl} alt={product.imageAlt} />
+  <h2>{product.name}</h2>
+  <BuyButton id={product.id} client:load />
+</ProductPageLayout>
+```
+
+## Fitur Andalan astro.js
+- **Content Collections**
+- **Zero JavaScript by Default**
+- **View Transitions**
+- **Middleware**
+- **Actions**
+- **Environment Variables**
+- **Deployment Adapters**
+- **UI Integrations**
+- **Dev Toolbar**
+
+Baca dokumen lebih lengkap nya lagi di website [Astro.js](https://docs.astro.build/en/getting-started/)
+
+## Set Up Astro Project
+
+Sebelum memulai penginstallan pastikan laptop atau pc kamu memenuhi syarat berikut:
+
+- <strong>Node.js</strong> - <mark>v18.17.1</mark> atau <mark>v20.3.0</mark> atau versi yang terbaru untuk versi <mark>v19</mark> masih belum support jadi pastikan versi node.js mu sudah kompetible dengan astro.js.
+- <strong>Text Editor</strong> - Aku merekomendasikan menggunakan [VS Code](https://code.visualstudio.com/) disana ada [plugin official astro](https://marketplace.visualstudio.com/items?itemName=astro-build.astro-vscode).
+- <strong>Terminal</strong> - Cara mengakses Astro ada melalui command-line interface(CLI).
+
+## Install dari CLI
+
+1. Jalankan perintah di terminal mu untuk memulai project astro.js
+
+```bash
+# buat project menggunakan npm
+npm create astro@latest
+```
+
+kamu juga bisa menginstall menggunakan pnpm, yarn. kamu bisa mengjalankan perintah <mark>create astro</mark> di terminal. ikuti perintah dari terminal dan jika kamu skip bagian <mark>npm install</mark> kamu juga masih bisa menginstall nya, tapi pastikan untuk menginstallnya.
+
+Setelah semua sudah di jalankan, maka kamu sudah bisa memulai [astro dev server](https://docs.astro.build/en/install-and-setup/#start-the-astro-dev-server) dan mulai coding!.
+
+## Starter Template
+
+Kalau kamu tidak mau ribet dan ingin praktis, kamu bisa menggunakan template yang disediakan oleh astro, [lihat disini](https://astro.build/themes)
+
+Lakukan ini jika kamu ingin menggunakan template dari astro ataupun github repository:
+
+```bash
+# create a new project with an official example
+npm create astro@latest -- --template <example-name>
+
+# create a new project based on a GitHub repository’s main branch
+npm create astro@latest -- --template <github-username>/<github-repo>
+```
+
+Dan akhir nya kamu udah bisa mulai melakukan astro development server
+
+```bash
+npm run dev
+```
+
+Astro bakal memulai server project mu di http://localhost:4321/ kunjungi link itu dan mulai coding !!

@@ -9,6 +9,7 @@ import {
 
 import myImage from "@/assets/akurafi.jpg";
 import project1 from "@/assets/projectsekolah.jpg";
+import project2 from "@/assets/project2.jpg";
 import {
   Instagram,
   ExternalLink,
@@ -138,6 +139,32 @@ const myskill = ["Astro.js", "Typescript", "React", "Tailwindcss", "Shadcn UI", 
                   </Button>
                 </article>
                   <Image class="w-full mx-auto mb-3.5 rounded-t-xl" src={project1} alt="Project 1" infersize={true} />
+                </figure>
+          <figure class="w-full mt-3.5 rounded-xl flex flex-col-reverse bg-neutral-800">
+            <article class="px-3 text-white">
+              <h1 class="text-xl font-NeueMedium w-60">Landing Page</h1>
+              <p class="text-xs mt-2">
+                12 Sep 2024 - Saat Ini
+              </p>
+              <p class="mt-3.5 text-neutral-400">
+                Situs ini menggunakan framework astro.js. Astro.js adalah static site website yang mengagumkan dan memiliki beberapa fitur artikel dengan Markdown, 100% SEO, dan kecepatan yang mengagumkan.
+              </p>
+              <div class="flex flex-wrap gap-2 my-3.5 pb-3">
+                {
+                listTech.map(item => (
+                  <p class="bg-neutral-700 h-6 text-xs py-1 rounded-full px-3">
+{
+                    item
+                  }
+                  </p>
+                  ))
+                  }
+                  </div>
+                  <Button size="sm" className="mb-3.5 text-xs rounded-full h-6" client:load>
+                    <a class="inline-flex items-center" href="https://smpn4muncarsatuatap.sch.id/"><Globe className="w-3 h-3 mr-1" />Kunjungi website</a>
+                  </Button>
+                </article>
+                  <Image class="w-full mx-auto mb-3.5 rounded-t-xl" src={project2} alt="Project 1" infersize={true} />
                 </figure>
               </Container>
 

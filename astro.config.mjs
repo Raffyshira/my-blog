@@ -19,9 +19,6 @@ export default defineConfig({
     devToolbar: {
         enabled: true
     },
-    image: {
-        service: squooshImageService()
-    },
     i18n: {
         defaultLocale: "en",
         locales: ["en", "id"],
@@ -39,5 +36,8 @@ export default defineConfig({
             footnoteLabel: "Footnotes"
         },
         gfm: true
-    }
+    },
+    image: {
+    service: squooshImageService(),
+  },
 });

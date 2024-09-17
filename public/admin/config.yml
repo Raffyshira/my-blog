@@ -22,6 +22,6 @@ collections:
           - { name: description, label: Description }
           - { name: author, label: author }
           - { name: date, label: Date, widget: date }
-          - { name: cover, label: cover }
+          - { name: cover, label: cover, widget: image }
           - { name: tags, label: tags }
-          - { name: body, label: Body, widget: markdown }
+          - { name: body, label: Body, widget: markdown, required: false }

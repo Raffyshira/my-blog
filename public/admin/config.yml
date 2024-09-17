@@ -16,7 +16,7 @@ collections:
     folder: src/content/blog
     create: true
     format: frontmatter
-    preview_path: post/{{slug}}
+    preview_path: blog/{{slug}}
     fields:
       - { name: title, label: Title, widget: string }
       - { name: description, label: Description, widget: string }

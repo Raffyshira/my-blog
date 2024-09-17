@@ -8,11 +8,12 @@ const blog = defineCollection({
             description: z.string(),
             author: z.string(),
             date: z.coerce.date(),
+            tags: z.array(z.string()).optional(),
             cover: image()
-        .refine((img) => img.width >= 600, {
-          message: "cover must be at least 600px wide",
-        })
-        .optional(),
+                .refine(img => img.width >= 600, {
+                    message: "cover must be at least 600px wide"
+                })
+                .optional()
         })
 });
 

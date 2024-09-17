@@ -1,0 +1,61 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Container from "@/components/Container.astro"
+import { getCollection } from "astro:content";
+import { Image } from "astro:assets";
+
+import { Instagram,Github } from 'lucide-react';
+
+
+const posts = (await getCollection('blog')).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const title = "Artikel"
+const description = "Disini aku menulis tentang apa yang aku pelajari tentang seputar teknologi dan mungkin beberapa kehidupan sehari hari ku."
+
+---
+
+<BaseLayout title={title} description={description}>
+  <Container class="mt-10">
+    <article class="w-full h-full">
+      <h1 class="text-2xl font-NeueMedium w-60 mb-3.5 sm:text-3xl sm:w-96">Selamat datang di halaman blog ku</h1>
+        <p class="text-black dark:text-neutral-400 sm:text-lg">Disini aku menulis tentang apa yang aku pelajari tentang seputar teknologi dan mungkin beberapa kehidupan sehari hari ku.</p>
+    </article>
+    <div class="w-full flex justify-start items-center gap-5 mt-3.5">
+      <a class="inline-flex items-center gap-x-3 text-sm text-foreground dark:text-neutral-400 font-Neue sm:text-base" href="https://www.instagram.com/raffyshira?igsh=MXhja28zbTZ1MHFyOQ==" target="_blank">
+          <Instagram className="w-4 h-4 sm:w-6 sm:h-6" /> Instagram
+      </a>
+      <a class="inline-flex items-center gap-x-3 text-sm text-foreground dark:text-neutral-400 font-Neue sm:text-base" href="https://github.com/Raffyshira" target="_blank">
+          <Github className="w-4 h-4 sm:w-6 sm:h-6" /> Github
+      </a>
+    </div>
+  </Container>
+  <Container>
+    <h1 class="text-2xl font-NeueMedium sm:text-3xl underline-offset-8 underline">Artikel</h1>
+    <div class="grid grid-cols-1 mt-5 gap-5">
+      {posts.map((post) => (
+        <div class="mt-1 p-2 w-full rounded-xl border-dashed border-2">
+          <a href={`/blog/${post.slug}`}>
+            <div class="text-foreground px-2">
+              <time class="my-1 text-xs text-color-light dark:text-color-dark" datetime={post.data.date.toLocaleDateString("id-ID")}>{post.data.date.toLocaleDateString("id-ID")}
+              </time>
+              <h1 class="text-lg font-NeueMedium w-fit">{post.data.title}</h1>
+              <p class="text-color-light dark:text-color-dark text-sm line-clamp-2 ">
+                  {post.data.description}
+              </p>
+              <div class="mt-2">
+                  {post.data.tags ? (
+                    <div>
+                      {post.data.tags.map(item => (
+                      <span class="text-sm border px-2 py-0.5 rounded-full mx-0.5">{item}</span>
+                      ))}
+                    </div>
+                ) : null}
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    ))}
+    </div>
+  </Container>
+</BaseLayout>

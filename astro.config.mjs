@@ -7,7 +7,7 @@ import mdx from "@astrojs/mdx";
 
 // https://astro.build/config
 export default defineConfig({
-    site: "https://rafiahsiraprayoga.vercel.app/",
+    site: "http://localhost:4321/",
     integrations: [
         react(),
         tailwind({
@@ -18,14 +18,6 @@ export default defineConfig({
     ],
     devToolbar: {
         enabled: true
-    },
-    i18n: {
-        defaultLocale: "en",
-        locales: ["en", "id"],
-        routing: {
-            prefixDefaultLocale: true,
-            redirectToDefaultLocale: false
-        }
     },
     markdown: {
         shikiConfig: {
@@ -38,6 +30,6 @@ export default defineConfig({
         gfm: true
     },
     image: {
-    service: squooshImageService(),
-  },
+        service: squooshImageService()
+    }
 });

@@ -1,0 +1,49 @@
+---
+import { getCollection } from "astro:content";
+import { Image } from "astro:assets";
+
+import BlogPostLayout from "@/layouts/BlogPostLayout.astro";
+import Prose from "@/components/Prose.astro";
+import TableOfContent from "@/components/TableOfContent.astro";
+import Container from "@/components/Container.astro";
+import { Button } from "@/components/ui/button.jsx"
+
+export const prerender = false;
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({
+    params: {
+      slug: post.slug
+    },
+    props: post,
+  }));
+}
+
+const post = Astro.props;
+const { Content,headings } = await post.render();
+
+---
+
+<BlogPostLayout title={post.data.title} description={post.data.description}>
+  <Container>
+    <artikel>
+      <h1 class="text-3xl mb-3.5 font-NeueBold">{post.data.title}</h1>
+      <div class="flex justify-start items-center mb-3.5 space-x-5">
+        <p class="text-neutral-400 text-base sm:text-lg">
+            Author: {post.data.author}</p>
+        <time class="text-neutral-400" datetime={post.data.date.toISOString()}>
+              {post.data.date.toLocaleDateString()}
+        </time>
+      </div>
+    </artikel>
+    {post.data.cover && <Image class="w-full rounded-xl mb-10" src= { post.data.cover } alt= { post.data.title } loading="eager" width= { 800 } height= { 800 } />
+    <TableOfContent headings={headings} />
+    <Prose>
+      <Content />
+    </Prose>
+    <Button className="mt-5 font-NeueMedium" client:load>
+      <a href="/blog">Back to Page</a>
+    </Button>
+  </Container>
+</BlogPostLayout>

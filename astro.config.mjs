@@ -7,7 +7,7 @@ import mdx from "@astrojs/mdx";
 
 // https://astro.build/config
 export default defineConfig({
-    site: "http://localhost:4321/",
+    site: "https://rafiahsiraprayoga.netlify.app/",
     integrations: [
         react(),
         tailwind({

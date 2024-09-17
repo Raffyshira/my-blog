@@ -2,7 +2,6 @@ import { Dock, DockIcon } from "./dock.jsx";
 import {
     HouseIcon,
     PencilIcon,
-    CalendarIcon,
     Github,
     Instagram,
     Twitter,

@@ -1,27 +1,27 @@
 backend:
-  name: github
-  repo: Raffyshira/my-blog #replace with your GitHub repo
-  branch: main
-  squash_merges: true
-  open_authoring: true
+    name: github
+    repo: Raffyshira/my-blog #replace with your GitHub repo
+    branch: main
+    squash_merges: true
+    open_authoring: true
 
 publish_mode: editorial_workflow
 media_folder: public/images
-public_folder: /images
+public_folder: /src/assets/images/redaksi/
 site_url: "https://rafiahsiraprayoga.netlify.app/" # your site name
 
 collections:
-  - name: post
-    label: Posts
-    folder: src/content/blog
-    create: true
-    format: frontmatter
-    preview_path: blog/{{slug}}
-    fields:
-      - { name: title, label: Title, widget: string }
-      - { name: description, label: Description, widget: string }
-      - { name: author, label: Author, widget: string }
-      - { name: date, label: Date, widget: date }
-      - { name: cover, label: Cover Image, widget: image, required: false }
-      - { name: tags, label: Tags, widget: list, default: [] }
-      - { name: body, label: Body, widget: markdown, required: false }
+    - name: post
+      label: Posts
+      folder: src/content/blog
+      create: true
+      format: frontmatter
+      preview_path: blog/{{slug}}
+      fields:
+          - { name: title, label: Title, widget: string }
+          - { name: description, label: Description, widget: string }
+          - { name: author, label: Author, widget: string }
+          - { name: date, label: Date, widget: date }
+          - { name: cover, label: Cover Image, widget: image, required: false }
+          - { name: tags, label: Tags, widget: list, default: [] }
+          - { name: body, label: Body, widget: markdown, required: false }

@@ -67,20 +67,24 @@
 @font-face {
     font-family: "Neue";
     src: url("./font/NeueMontreal-Regular.otf");
+    font-display: swap;
 }
 
 @font-face {
     font-family: "NeueLight";
     src: url("./font/NeueMontreal-Light.otf");
+    font-display: swap;
 }
 
 @font-face {
     font-family: "NeueMedium";
     src: url("./font/NeueMontreal-Medium.otf");
+    font-display: swap;
 }
 
 @font-face {
     font-family: "NeueBold";
     src: url("./font/NeueMontreal-Bold.otf");
     font-weight: bold;
+    font-display: swap;
 }
